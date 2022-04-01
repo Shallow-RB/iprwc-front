@@ -1,0 +1,51 @@
+<header class="body-font bg-gradient-to-b from-black to-transparent backdrop-blur-sm border-b-[1px] ">
+  <div class="container mx-auto flex flex-wrap p-4 md:p-10 md:flex-row items-center justify-between">
+    <a routerLink="/"
+       class="flex items-center md:mb-0 hover:scale-110 sm:hover:scale-150 overflow-hidden transition duration-300 ease-in-out">
+      <img class="w-12 h-auto hover:opacity-70 " src="/assets/img/nft.png" alt="logo">
+      <span class="ml-3 text-xl"></span>
+    </a>
+    <nav class="md:ml-auto md:mr-auto flex flex-wrap items-center text-base  md:text-2xl overflow-y-hidden">
+      <a routerLink="/product" *ngIf="authService.isLoggedIn$ | async"
+         class="md:ml-2 md:mr-2 text-center pl-2 pr-2 hover:text-cyan-500 md:tracking-[.3em] hover:scale-110 overflow-hidden transition duration-300 ease-in-out">STORE</a>
+      <a routerLink="/shoppingcart" *ngIf="authService.isLoggedIn$ | async"
+         class="md:ml-2 md:mr-2 text-center pl-2 pr-2 hover:text-cyan-500 md:tracking-[.3em] hover:scale-110 overflow-hidden transition duration-300 ease-in-out">CART</a>
+    </nav>
+
+    <a routerLink="/login" *ngIf="!(authService.isLoggedIn$ | async)"
+       class="self-center justify-center relative inline-flex items-center py-2 px-8 overflow-hidden text-white border border-current rounded group hover:text-cyan-400 focus:outline-none focus:ring hover:delay-100">
+
+        <span
+          class="absolute right-0 transition-transform translate-x-full group-hover:-translate-x-4 group opacity-0 group-hover:opacity-100 transition ease-out">
+          <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+          </svg>
+        </span>
+      <span class="text-sm font-medium transition-all group-hover:mr-4">
+          Log In
+        </span>
+    </a>
+
+    <a routerLink="/profile" *ngIf="authService.isLoggedIn$ | async"
+       class="md:text-2xl md:ml-2 md:mr-2 text-center pl-2 pr-2 hover:text-cyan-500 md:tracking-[.3em] scale-[1.75] hover:scale-[2.25] overflow-hidden transition duration-300 ease-in-out">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle"
+           viewBox="0 0 16 16">
+        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+        <path fill-rule="evenodd"
+              d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+      </svg>
+    </a>
+
+    <a routerLink="/" *ngIf="authService.isLoggedIn$ | async" (click)="authService.logout()"
+       class="md:ml-2 md:mr-2 text-center pl-2 pr-2 hover:text-cyan-500 scale-[1.75] hover:scale-[2.25] overflow-hidden transition duration-300 ease-in-out">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-right"
+           viewBox="0 0 16 16">
+        <path fill-rule="evenodd"
+              d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z"/>
+        <path fill-rule="evenodd"
+              d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
+      </svg>
+    </a>
+
+  </div>
+</header>

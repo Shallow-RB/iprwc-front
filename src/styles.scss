@@ -1,1 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  text-decoration: none;
+  list-style: none;
+  font-family: "Neue Haas Grotesk Display Pro", monospace;
+}

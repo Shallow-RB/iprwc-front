@@ -1,0 +1,81 @@
+<div>
+  <section class="video-container overflow-x-hidden">
+    <video class="z-[1]" autoplay loop onloadedmetadata="this.muted = true" oncanplay="this.play()" [muted]="'muted'">
+      <source src="../../../assets/video/shop.mp4" type="video/mp4">
+    </video>
+  </section>
+  <section class="overlay overflow-x-hidden z-[1]"></section>
+</div>
+
+<section class="absolute w-screen bg-primarybg h-screen overflow-x-hidden">
+  <div class="relative mx-auto text-white">
+    <div class="grid grid-cols-1 h-screen">
+      <div class=" bg-transparent z-[2]">
+        <div class="absolute translate-x-[10vw] md:translate-x-[50%] md:w-1/2 w-10/12 min-h-full bg-black bg-opacity-50 mx-auto px-8 z-[2]">
+          <h1 class="text-center text-2xl md:text-3xl mb-10 md:mt-[8em] mt-[6em]">CHECKOUT</h1>
+          <div class="flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                 class="scale-[2.5] -translate-y-[0.1em]"
+                 viewBox="0 0 16 16">
+              <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+              <path fill-rule="evenodd"
+                    d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+            </svg>
+
+
+            <h2 class="ml-6 text-2xl font-bold ">{{username}}</h2>
+          </div>
+
+          <div class="mt-8">
+            <p class="text-2xl font-medium tracking-tight text-cyan-400">$ {{totalPrice}}</p>
+            <p class="mt-1 text-md text-gray-200">For the purchase of</p>
+          </div>
+
+          <div class="mt-12">
+            <div class="flow-root">
+              <ul class="-my-4">
+                <li *ngFor="let item of cartService.getCartData()" (click)="onDelete(item)"
+                    class="flex items-center justify-between my-2 py-4 p-4 bg-secondarybg bg-opacity-25 hover:bg-cyan-800 rounded-lg transition ease-in-out duration-300 ">
+                  <div class="flex items-start items-center">
+                    <img
+                      class="flex-shrink-0 object-cover w-16 h-16 rounded-lg"
+                      src="{{item.imageURL}}"
+                      alt=""
+                    />
+
+                    <div class="ml-4">
+                      <p class="text-md">{{item.name}}</p>
+
+                      <dl class="mt-1 space-y-1 text-md text-gray-500">
+                        <div>
+                          <dt class="inline">{{item.description}}</dt>
+                        </div>
+                      </dl>
+                    </div>
+                  </div>
+
+
+                  <div>
+                    <p class="text-md">
+                      $ {{item.price}}
+                    </p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-span-6">
+            <hr class="mt-4">
+            <button (click)="createOrder($event)"
+              class="rounded-lg bg-secondarybg text-md p-2.5 mx-auto mt-8 text-white w-1/2 block hover:bg-cyan-600 transition ease-in-out duration-300"
+              type="submit"
+            >
+              Pay Now
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

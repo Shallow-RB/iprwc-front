@@ -1,0 +1,20 @@
+<div class="flex items-center h-screen w-full justify-center bg-primarybg">
+  <div class="shadow-lg shadow-gray-700 rounded-lg py-3 bg-secondarybg w-[70vw] lg:w-[40vw]">
+    <div class="p-2 bg-secondarybg rounded-lg h-full">
+      <p class="text-center text-gray-400 text-lg font-semibold bg-secondarybg">USERNAME:</p>
+      <br>
+      <p class="text-center text-white text-[2rem] font-semibold bg-secondarybg">{{username}}</p>
+      <br>
+      <table class="text-center mx-auto text-white">
+        <tr class="w-1/2 bg-[#202020]">
+          <th class="p-2 text-center">OrderId</th>
+          <th class="p-2 text-center">UserId</th>
+        </tr>
+        <tr *ngFor="let order of orders">
+          <td class="p-2">{{order.orderId}}</td>
+          <td class="p-2 text-center">{{order.userId}}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

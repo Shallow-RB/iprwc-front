@@ -1,0 +1,68 @@
+<aside class="absolute h-screen w-screen overflow-hidden text-white bg-gradient-to-r from-gray-200 to-gray-800  ">
+  <div class="relative bg-transparent z-10 max-w-screen-xl px-6 pt-72 sm:pt-[25em] mx-auto sm:px-6 lg:px-8">
+    <div class="max-w-xl bg-transparent space-y-8 text-center sm:text-right sm:ml-auto">
+      <h2 *ngIf="authService.loginStatus() | async" class="text-2xl bg-transparent font-bold sm:text-5xl">
+        Welcome, <span class="text-cyan-500">{{username}}</span> !
+        <br>
+        <span class="hiddenbg-transparent sm:block text-2xl mt-6 font-medium">
+          Explore our latest NFT launch!
+        </span>
+      </h2>
+
+
+
+      <h2 *ngIf="!(authService.loginStatus() | async)" class="text-4xl bg-transparent font-bold sm:text-4xl">
+        Explore our latest NFT launch!
+
+      </h2>
+      <span class="hidden bg-transparent sm:block text-2xl">
+          Impossible to put down.
+        </span>
+      <p
+        class="hidden bg-transparent sm:block sm:max-w-lg sm:ml-auto sm:text-lg">
+        This new NFT Collection aims towards bringing, the far to the palm of your hands. It has never been this easier
+        to own a part of the never ending nothingness that is space.
+      </p>
+
+      <a routerLink="/login" *ngIf="!(authService.loginStatus() | async)"
+         class="w-48 mt-8 self-center justify-center relative inline-flex items-center px-8 py-3 overflow-hidden text-white border border-current rounded group hover:text-cyan-400 focus:outline-none focus:ring hover:delay-100">
+
+        <span
+          class="absolute right-0 transition-transform translate-x-full group-hover:-translate-x-4 group opacity-0 group-hover:opacity-100 transition ease-out">
+          <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+          </svg>
+        </span>
+        <span class="text-sm font-medium transition-all group-hover:mr-4 ">
+          EXPLORE
+        </span>
+      </a>
+
+      <a routerLink="/product" *ngIf="authService.loginStatus() | async"
+         class="w-48 mt-8 self-center justify-center relative inline-flex items-center px-8 py-3 overflow-hidden text-white border border-current rounded group hover:text-cyan-400 focus:outline-none focus:ring hover:delay-100">
+
+        <span
+          class="absolute right-0 transition-transform translate-x-full group-hover:-translate-x-4 group opacity-0 group-hover:opacity-100 transition ease-out">
+          <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+          </svg>
+        </span>
+        <span class="text-sm font-medium transition-all group-hover:mr-4 ">
+          EXPLORE
+        </span>
+      </a>
+    </div>
+  </div>
+
+  <div class="absolute inset-0 w-full h-full mix-blend-multiply">
+    <section class="video-container overflow-x-hidden">
+      <video id="spaceVideo" class="-z-10" autoplay loop onloadedmetadata="this.muted = true" oncanplay="this.play()"
+             [muted]="'muted'">
+        <source src="./assets/video/space.m4v" type="video/mp4">
+      </video>
+    </section>
+    <section class="overlay overflow-x-hidden z-[-1]"></section>
+  </div>
+</aside>
+
+
