@@ -5,12 +5,13 @@ import {Observable} from 'rxjs';
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
 
-  constructor() {}
+  constructor() {
+  }
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     const access_token = localStorage.getItem("access_token")
 
-    if ((!request.url.endsWith("/login") || !request.url.endsWith("/register") || !access_token)) {
+    if ((request.url.endsWith("/login") || request.url.endsWith("/register") || !access_token)) {
       request = request.clone({
         headers: request.headers.set("Authorization", "Bearer " + access_token)
           .set("Access-Control-Allow-Origin", "*")
