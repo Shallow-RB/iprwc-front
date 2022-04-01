@@ -20,12 +20,12 @@ export class AuthInterceptor implements HttpInterceptor {
       );
     }
 
-    // request = request.clone({
-    //   headers: request.headers
-    //     .set("Accept", "*/*")
-    //     .set("Access-Control-Allow-Origin", "*")
-    //     .set("Allow-Origin", "*")
-    // })
+    request = request.clone({
+      headers: request.headers
+        .set("Accept", "*/*")
+        .set("Access-Control-Allow-Origin", "*")
+        .set("Allow-Origin", "*")
+    })
 
     return next.handle(request);
   }
