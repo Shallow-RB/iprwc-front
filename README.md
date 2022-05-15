@@ -1,8 +1,9 @@
 Website hosted on: 
 https://iprwc-s1126167.herokuapp.com/
-(may take a few seconds to load)
-login: Bob1 
-pw: 1234
+## (may take a few seconds to load)
+
+## login: Bob1 
+## pw: 1234
 # IprwcFront
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.0.
